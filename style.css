@@ -1,0 +1,1017 @@
+/* =====================
+   RESET
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+:root {
+  --navbar-height: 70px;     /* agar tumhari navbar 60–80px ke beech hai */
+  --hero-height: 100vh;      /* full screen hero */
+}
+/* ---------- HERO (LIGHT THEME) ---------- */
+.hero-section {
+  min-height: var(--hero-height);
+  padding-top: var(--navbar-height);
+  background: linear-gradient(
+    to bottom,
+    #ffffff 0%,
+    #f7fcff 30%,
+    #eaf6fb 65%,
+    rgba(234, 246, 251, 0.85) 80%,
+    rgba(234, 246, 251, 0.4) 100%
+  );
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- BLEND LAYER (MAGIC PART) ---------- */
+.hero-section::after {
+  content: "";
+  position: absolute;
+  bottom: -120px;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(
+    to bottom,
+    rgba(234, 246, 251, 0) 0%,
+    rgba(207, 239, 247, 0.6) 40%,
+    rgba(159, 227, 244, 0.9) 100%
+  );
+  pointer-events: none;
+}
+
+/* ---------- OCEAN OMBRE BACKGROUND ---------- */
+/* Entire website background with soft white tone */
+body {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.4),  /* soft white overlay */
+    #c0f0ff 60%,                /* very light cyan */
+    #a0e5ff 80%,                /* soft sky blue */
+    #80d9ff 100%                /* medium blue */
+  );
+  background-attachment: fixed; /* background stays while scrolling */
+  background-size: cover;
+}
+
+/* Ensure all sections allow background to show through */
+.hero-section,
+.top-destinations,
+.traveller-section,
+.testimonials,
+.appointment-section,
+.contact,
+.footer {
+  background: transparent; /* let body's gradient show */
+}
+
+/* Optional: Hero image overlay to blend with white tone */
+.hero {
+  background: linear-gradient(
+      rgba(255,255,255,0.3),  /* subtle white overlay on hero */
+      rgba(255,255,255,0.2)
+    ),
+    url("https://images.pexels.com/photos/2093119/pexels-photo-2093119.jpeg") center / cover no-repeat;
+}
+
+
+
+/* =====================
+   NAVBAR – PROFESSIONAL FINAL
+===================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 40px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  height: 60px; /* fixed height */
+}
+
+/* Logo */
+.nav-logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0284c7;
+  white-space: nowrap; /* single line */
+}
+
+/* Links */
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  color: #0369a1;
+  position: relative; /* for underline animation */
+  transition: all 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #38bdf8, #22d3ee);
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a:focus::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  color: #0ea5e9;
+}
+
+/* =====================
+   MOBILE RESPONSIVE
+===================== */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 8px 15px;
+    height: 50px; /* compact */
+  }
+
+  .nav-logo {
+    font-size: 18px;       
+    white-space: nowrap;    
+    margin-right: 15px;      /* gap with links */
+  }
+
+  .nav-links {
+    gap: 10px;
+    flex-wrap: nowrap;      
+    overflow-x: auto;       /* horizontal scroll if needed */
+  }
+
+  .nav-links a {
+    font-size: 13px;        
+    padding: 4px 6px;       
+    white-space: nowrap;     
+  }
+
+  .nav-links::-webkit-scrollbar {
+    display: none; /* hide scrollbar */
+  }
+
+  /* Mobile underline fix */
+  .nav-links a::after {
+    bottom: -3px;        /* adjust position */
+    height: 2px;         /* slightly smaller */
+  }
+}
+
+
+
+
+/* =====================
+   HERO
+===================== */
+.hero {
+  height: 80vh;
+  margin: 20px;
+  border-radius: 30px;
+  background: url("https://images.pexels.com/photos/2093119/pexels-photo-2093119.jpeg")
+    center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-text {
+  text-align: center;
+  color: white;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.hero-text h1 {
+  font-size: 48px;
+}
+
+.hero-text p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+@media (max-width: 480px) {
+  .hero {
+    height: 55vh; /* thoda kam height, mobile pe lambi nahi dikhegi */
+    background-position: center top; /* image ka important part visible */
+  }
+
+  .hero-text h1 {
+    font-size: 28px; /* text mobile pe readable rahe */
+  }
+
+  .hero-text p {
+    font-size: 14px;
+  }
+}
+
+/* =====================
+   DESTINATIONS
+===================== */
+.top-destinations {
+  padding: 60px 20px;
+  background: transparent;
+  text-align: center;
+}
+
+.top-destinations h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #0f172a;
+}
+
+.top-destinations h2 span {
+  color: #0ea5e9;
+}
+
+.dest-cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+.dest-card {
+  background: linear-gradient(135deg, #e0f7fa, #f0fdfa);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.dest-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.dest-card:hover img {
+  transform: scale(1.08);
+}
+
+.dest-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+}
+
+.dest-info {
+  padding: 15px;
+  text-align: center;
+  background: transparent;
+  border-top: 1px solid #e0f2fe;
+}
+
+.dest-info h3 {
+  color: #0369a1;
+  margin-bottom: 6px;
+}
+
+.dest-info p {
+  color: #475569;
+  font-size: 14px;
+  line-height: 1.4;
+}
+/* =====================
+   HERO MOBILE FIX
+===================== */
+@media (max-width: 480px) {
+  .hero {
+    height: 55vh; /* thoda kam height, mobile pe lambi nahi dikhegi */
+    background-position: center top; /* image ka important part visible */
+  }
+
+  .hero-text h1 {
+    font-size: 28px; /* text mobile pe readable rahe */
+  }
+
+  .hero-text p {
+    font-size: 14px;
+  }
+}
+
+/* =====================
+   TOP DESTINATIONS SLIDE-IN + EMOJI
+===================== */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px); /* left se start */
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); /* center me ruk jaaye */
+  }
+}
+
+@media (max-width: 480px) {
+  .top-destinations h2 {
+    font-size: 24px;
+    text-align: center;
+    opacity: 0;
+    animation: slideIn 1.5s ease-out forwards; /* speed slow, smooth */
+  }
+
+  /* Emoji add */
+  .top-destinations h2::after {
+    content: " 🏖️";
+  }
+}
+
+
+/* =====================
+   TESTIMONIALS
+===================== */
+.testimonials {
+  padding: 60px 20px;
+  background:transparent;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #0284c7;
+}
+
+.testimonial-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.testimonial-card {
+  flex: 0 0 23%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.stars {
+  color: #facc15;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.testimonial-card p {
+  margin-bottom: 10px;
+}
+
+.testimonial-card span {
+  color: #0ea5e9;
+  font-weight: 600;
+}
+
+/* =====================
+   APPOINTMENT
+===================== */
+/* =====================
+   APPOINTMENT
+===================== */
+.appointment-section {
+  width: 100%;
+  padding: 70px 20px; /* thoda bada section */
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.appointment-container {
+  display: flex;
+  gap: 40px;
+  max-width: 1200px;
+  width: 100%;
+  align-items: center;
+}
+
+/* Desktop */
+.girl-image img {
+  max-height: 600px; /* increase height */
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+/* Optional: slight zoom on hover */
+.girl-image img:hover {
+  transform: scale(1.08);
+}
+
+/* Tablet / Mobile */
+@media (max-width: 768px) {
+  .girl-image img {
+    max-height: 350px; /* bigger than current 250px */
+    width: auto;
+  }
+}
+
+
+.girl-image img:hover {
+  transform: scale(1.05);
+}
+
+.appointment-card {
+  background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+  border-radius: 20px;
+  padding: 30px;
+  flex: 1;
+  min-width: 320px;
+  max-width: 500px; /* rect + squarish form */
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.appointment-card h2 {
+  color: #0284c7;
+  margin-bottom: 25px;
+  font-size: 26px;
+  text-align: center;
+  background: #ffffff;
+  padding: 15px 20px;
+  border-radius: 12px;
+  width: fit-content;
+}
+
+.appointment-card input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-size: 16px;
+  margin-bottom: 15px;
+  outline: none;
+}
+
+.appointment-card input:focus {
+  border: 1px solid #0284c7;
+  box-shadow: 0 4px 10px rgba(2,132,199,0.2);
+}
+
+.appointment-card button {
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+  color: #fff;
+  font-weight: bold;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.appointment-card button:hover {
+  background: linear-gradient(90deg, #0ea5e9, #0284c7);
+  transform: scale(1.03);
+}
+
+/* =====================
+   MOBILE RESPONSIVE
+===================== */
+@media (max-width: 768px) {
+  .appointment-container {
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+  }
+
+  .girl-image {
+    display: none; /* image hide on mobile */
+  }
+
+  .appointment-card {
+    max-width: 320px;       /* previous 90% → now fixed max-width for squarish feel */
+    width: 90%;             /* responsive */
+    padding: 25px;          /* thoda extra padding for balance */
+    border-radius: 18px;
+  }
+
+  .appointment-card h2 {
+    font-size: 22px;
+    padding: 12px 15px;
+  }
+
+  .appointment-card input {
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+
+  .appointment-card button {
+    padding: 14px 20px;
+  }
+}
+
+
+/* =====================
+   GALLERY
+===================== */
+/* SECTION */
+.traveller-section {
+  padding: 50px 20px;
+  background: transparent; /* 👈 MOST IMPORTANT */
+  text-align: center;
+}
+
+
+.traveller-section h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #0077b6;
+  font-weight: 700;
+}
+
+/* GRID */
+.custom-grid {
+  max-width: 1200px; /* Desktop large grid */
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  /* First row और last row की height बढ़ा दी, middle row थोड़ी लंबी */
+  grid-template-rows: 180px 220px 180px;
+
+  gap: 16px; /* Images के बीच gap */
+}
+
+/* CARD */
+.card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 15px 30px rgba(0, 119, 182, 0.3);
+}
+
+/* IMAGE */
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* BEACHY OVERLAY */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 119, 182, 0.35),
+    rgba(255, 255, 255, 0.05)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 768px) {
+  .custom-grid {
+    max-width: 90%;
+    transform: scale(0.85);
+    transform-origin: top center;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-grid {
+    transform: scale(0.75);
+  }
+}
+
+/* =====================
+   Traveller Moments – FULL WIDTH MOBILE
+===================== */
+
+/* Tablet & below */
+@media (max-width: 768px) {
+  .traveller-section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .custom-grid {
+    max-width: 100%;
+    margin: 0;
+    gap: 16px; /* images ke beech gap */
+  }
+}
+
+/* Phone */
+@media (max-width: 480px) {
+  .traveller-section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .custom-grid {
+    max-width: 100%;
+    margin: 0;
+    gap: 12px; /* thoda chhota gap on phone */
+  }
+}
+
+
+
+/* =====================
+   CONTACT
+===================== */
+.contact {
+  padding: 40px 20px;
+  background:transparent;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 26px;
+  color: #0284c7;
+  margin-bottom: 6px;
+}
+
+.contact-subtitle {
+  font-size: 15px;
+  color: #0369a1;
+  margin-bottom: 18px;
+}
+
+.contact-info-only {
+  display: inline-block;
+  background: #ffffff;
+  padding: 20px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.contact-info-only p {
+  font-size: 16px;
+  color: #0f172a;
+  margin: 8px 0;
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .contact-info-only {
+    padding: 16px 20px;
+  }
+
+  .contact-info-only p {
+    font-size: 15px;
+  }
+}/* =====================
+   CONTACT – MOBILE FIX
+===================== */
+@media (max-width: 480px) {
+
+  .contact {
+    padding: 28px 14px;   /* section height कम */
+  }
+
+  .contact h2 {
+    font-size: 22px;
+  }
+
+  .contact-subtitle {
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  .contact-info-only {
+    width: 100%;          /* full width but… */
+    max-width: 340px;     /* 👈 box बहुत बड़ा न हो */
+    padding: 14px 18px;   /* 👈 extra space हटाया */
+    border-radius: 18px;  /* 👈 square नहीं लगेगा */
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+  }
+
+  .contact-info-only p {
+    font-size: 14px;
+    margin: 6px 0;       /* 👈 lines के बीच कम gap */
+    line-height: 1.4;
+  }
+}
+
+
+
+/* =====================
+   FOOTER
+===================== */
+.footer {
+  background: linear-gradient(
+    to bottom,
+    #7ccfe8,
+    #63c6e4
+  );
+  color: #034160;
+  text-align: center;
+  padding: 30px;
+}
+
+
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 1200px) {
+  .dest-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .testimonial-card {
+    flex: 0 0 32%;
+  }
+}
+
+@media (max-width: 768px) {
+  .dest-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonial-card {
+    flex: 0 0 48%;
+  }
+
+  .hero-text h1 {
+    font-size: 32px;
+  }
+
+  .appointment-container {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .girl-image img {
+    max-height: 250px;
+  }
+
+  .appointment-card {
+    padding: 20px;
+    min-width: 260px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dest-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-card {
+    flex: 0 0 90%;
+  }
+
+  .appointment-card h2 {
+    font-size: 20px;
+  }
+
+  .appointment-card button {
+    padding: 12px;
+  }
+
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .contact-info {
+    text-align: center;
+  }
+}
+/* =====================
+   Traveller Grid – PHONE FINAL FIX
+===================== */
+@media (max-width: 480px) {
+
+  /* Grid full width */
+  .traveller-section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .custom-grid {
+    max-width: 100%;
+    margin: 0;
+    gap: 12px;
+
+    /* still 3 columns */
+    grid-template-columns: repeat(3, 1fr);
+
+    /* rows thodi tall */
+    grid-template-rows: 140px 260px 140px;
+  }
+
+  /* Hide middle row side images */
+  .custom-grid .card:nth-child(4),
+  .custom-grid .card:nth-child(6) {
+    display: none;
+  }
+
+  /* Middle image takes full row */
+  .middle-full {
+    grid-column: 1 / -1; /* 👈 poori width */
+    grid-row: 2;
+    border-radius: 22px;
+  }
+}
+/* =====================
+   MOBILE – Reduce gap between Gallery & Contact
+===================== */
+/* =====================
+   PHONE – Reduce only vertical gap between Gallery & Contact
+===================== */
+@media (max-width: 480px) {
+  /* Traveller Section bottom space कम करें */
+  .traveller-section {
+    padding-bottom: 10px !important;
+  }
+
+  /* Contact Section top space कम करें */
+  .contact {
+    padding-top: 10px !important;
+  }
+}
+/* =====================
+   LIGHTBOX
+===================== */
+/* Lightbox basic */
+.lightbox {
+  display: none;           /* hidden initially */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* center image */
+  z-index: 9999;
+  cursor: pointer;
+}
+
+.lightbox-img {
+  width: 0;                /* start from 0 */
+  height: 0;
+  transition: width 0.5s ease, height 0.5s ease;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.lightbox.show .lightbox-img {
+  width: 90vw;             /* 90% of viewport width */
+  height: auto;            /* maintain aspect ratio */
+  max-height: 90vh;        /* max 90% of viewport height */
+}
+/* =====================
+   HERO TEXT – WHITE ONLY (PREMIUM)
+===================== */
+
+.hero-text {
+  text-align: center;
+}
+
+/* -------- HEADING -------- */
+.hero-text h1 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ffffff; /* PURE WHITE */
+
+  /* Soft glow behind text */
+  text-shadow:
+    0 0 12px rgba(145, 239, 246, 0.45),
+    0 0 28px rgba(173, 238, 233, 0.35);
+
+  opacity: 0;
+  animation: lineReveal 1.2s ease forwards;
+}
+
+/* -------- SUBTITLE -------- */
+.hero-text p {
+  margin-top: 14px;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
+
+  opacity: 0;
+  animation: fadeUp 1.4s ease forwards;
+  animation-delay: 0.9s; /* stagger */
+}
+
+/* =====================
+   HOVER GLOW
+===================== */
+.hero-text h1:hover {
+  text-shadow:
+    0 0 18px rgba(145, 239, 246, 0.7),
+    0 0 40px rgba(173, 238, 233, 0.55);
+  transition: text-shadow 0.4s ease;
+}
+
+/* =====================
+   ANIMATIONS
+===================== */
+@keyframes lineReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 28px;
+    text-shadow:
+      0 0 10px rgba(145, 239, 246, 0.35),
+      0 0 22px rgba(173, 238, 233, 0.25);
+  }
+
+  .hero-text p {
+    font-size: 14px;
+  }
+}
+/* Desktop & larger screens: hover effect */
+.traveller-section h2,
+.contact h2,
+.testimonials h2,
+.top-destinations h2 {
+  transition: all 0.3s ease; /* smooth transition */
+  cursor: pointer;           /* indicates interactivity */
+}
+
+/* Hover effect (desktop) */
+.traveller-section h2:hover,
+.contact h2:hover,
+.testimonials h2:hover,
+.top-destinations h2:hover {
+  color: #0ea5e9;        /* bright accent color */
+  transform: scale(1.05); /* slightly bigger */
+}
+
+/* Mobile / tablet: tap effect to mimic hover */
+@media (max-width: 768px) {
+  .traveller-section h2:active,
+  .contact h2:active,
+  .testimonials h2:active,
+  .top-destinations h2:active {
+    color: #0ea5e9;
+    transform: scale(1.05); /* same scale as desktop */
+    transition: all 0.3s ease;
+  }
+}

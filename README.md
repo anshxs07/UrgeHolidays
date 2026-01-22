@@ -1,94 +1,68 @@
 # UrgeHolidays
-This project is a full-stack automation system where the frontend is built using HTML, CSS, and JavaScript, and the backend automation is handled using n8n. The system allows users to submit data from a web form, which automatically triggers workflows on the backend.  The backend is deployed on a VPS server using Docker, secured with HTTPS (SSL),
-# 🚀 Automation Workflow System (Frontend + n8n Backend)
+A modern, responsive travel website with premium UI, appointment application form, and n8n automation for backend workflows. Built with clean frontend design, interactive sections, and production-ready automation.
+# 🌍 Travel Website – Frontend + Backend Automation
 
-## 📌 Project Overview
-
-This project is a complete automation-based web system.
-
-- Frontend is developed using **HTML, CSS, and JavaScript**
-- Backend automation is created using **n8n**
-- Hosted on **VPS server**
-- Deployed using **Docker**
-- Secured with **HTTPS (SSL)**
-- Integrated with **Gmail, Telegram, and Google Sheets**
-
-When a user submits a form from the website, the data automatically triggers n8n workflows and performs multiple actions.
+A premium, fully responsive travel website designed for travel agencies, tour operators, and tourism businesses.  
+This project includes a modern frontend UI, interactive sections, and backend automation using **n8n** for handling application forms efficiently.
 
 ---
 
-## ⚙️ Tech Stack
+## ✨ Features
 
-### Frontend
-- HTML
-- CSS
-- JavaScript
+### 🎨 Frontend
+- Modern and clean UI with soft gradients
+- Fully responsive (Desktop, Tablet, Mobile)
+- Hero section with animations
+- Top Destinations section
+- Traveller Moments (Gallery with Lightbox)
+- Testimonials section
+- Appointment / Application form
+- Contact section
+- Smooth hover & tap effects
+- Sticky navbar with scroll behavior
 
-### Backend / Automation
-- n8n (Workflow Automation)
-
-### DevOps & Hosting
-- VPS Hosting
-- Docker
-- Docker Compose
-- HTTPS (SSL)
-- Nginx / Reverse Proxy
-
-### Integrations
-- Gmail API (Email notifications)
-- Telegram Bot (Instant alerts)
-- Google Sheets API (Data storage)
-
----
-
-## 🔁 How the System Works
-
-1. User fills and submits the form on the website  
-2. JavaScript sends data to n8n webhook  
-3. n8n workflow is triggered automatically  
-4. Workflow performs actions:
-   - Sends email via Gmail
-   - Sends message on Telegram
-   - Stores data in Google Sheets
-5. Admin receives real-time notifications
+### ⚙️ Backend & Automation
+- Application form submission handling
+- **n8n automation** for:
+  - Form data processing
+  - Email notifications
+  - Workflow automation
+- Easily extendable for CRM or database integration
 
 ---
 
-## 📊 Features
-
-- Automated form handling
-- Real-time workflow trigger
-- Secure HTTPS connection
-- Docker-based deployment
-- Cloud VPS hosting
-- Multi-service integration
-- Scalable automation structure
+## 📱 Responsive Design
+- Optimized for all screen sizes
+- Mobile-friendly layouts
+- Touch-friendly interactions
 
 ---
 
-## 🧠 What I Learned
+## 🛠 Tech Stack
 
-- Building real-world automation systems
-- Working with webhooks
-- Docker deployment on VPS
-- HTTPS and SSL setup
-- API integration
-- Workflow design using n8n
-- Production-level backend automation
+**Frontend**
+- HTML5
+- CSS3
+- JavaScript (Vanilla JS)
 
----
-
-## 🚀 Future Improvements
-
-- Admin dashboard
-- User authentication
-- Database integration (Supabase / PostgreSQL)
-- Role-based access
-- Advanced analytics
+**Backend / Automation**
+- n8n (workflow automation)
+- Form-based data handling
 
 ---
 
-## 👨‍💻 Developed By
+## 🚀 Use Cases
+- Travel agencies
+- Tour & holiday planners
+- Tourism startups
+- Freelancers & agencies selling turnkey websites
+- Marketplace-ready website product
 
-**Ansh Sharma**
+---
 
+## 📦 Installation & Setup
+
+### 1️⃣ Frontend
+- Clone the repository
+```bash
+git clone https://github.com/your-username/travel-website.git
